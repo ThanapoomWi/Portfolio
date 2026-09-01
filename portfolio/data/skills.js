@@ -1,27 +1,27 @@
 const skills = [
   {
     name: "React",
-    description: "Building modern and reusable UI components.",
+    description: "สร้าง UI components ที่ทันสมัยและนำกลับมาใช้ซ้ำได้",
   },
   {
     name: "JavaScript",
-    description: "Developing interactive web experiences.",
+    description: "พัฒนาเว็บที่ตอบสนองและสร้างประสบการณ์การใช้งานที่ดี",
   },
   {
     name: "Tailwind CSS",
-    description: "Designing responsive and modern interfaces.",
+    description: "ออกแบบอินเทอร์เฟซที่ทันสมัยและรองรับทุกขนาดหน้าจอ",
   },
   {
     name: "HTML & CSS",
-    description: "Creating clean and accessible layouts.",
+    description: "สร้างเลย์เอาต์ที่สะอาดและเข้าถึงได้ง่าย",
   },
   {
     name: "REST API",
-    description: "Connecting frontend applications with APIs.",
+    description: "เชื่อมต่อแอปพลิเคชันฝั่ง frontend เข้ากับ APIs",
   },
   {
     name: "Git",
-    description: "Version control and collaborative development.",
+    description: "จัดการเวอร์ชันและทำงานร่วมกันอย่างเป็นระบบ",
   },
 ];
 
