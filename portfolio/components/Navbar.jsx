@@ -5,8 +5,8 @@ function Navbar() {
   const location = useLocation();
   const navItems = [
     { label: "Home", href: "/" },
-    { label: "About", href: "/#about" },
     { label: "Projects", href: "/projects" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -61,16 +61,6 @@ function Navbar() {
             );
           })}
           
-          <Link
-            to="/contact"
-            className={`rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ${
-              location.pathname === "/contact" 
-              ? "text-blue-400 bg-white/[0.08]" 
-              : "text-zinc-400 hover:bg-white/[0.06] hover:text-white"
-            }`}
-          >
-            Contact
-          </Link>
         </div>
 
         {/* Right Side */}

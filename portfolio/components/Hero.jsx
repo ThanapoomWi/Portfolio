@@ -1,6 +1,6 @@
 import { TypeAnimation } from "react-type-animation";
 import { Link } from "react-router-dom";
-import heroImg from "../public/poom.jpg";
+import heroImg from "/poom.jpg";
 import { motion } from "framer-motion";
 
 function Hero() {
