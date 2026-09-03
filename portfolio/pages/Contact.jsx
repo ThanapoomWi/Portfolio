@@ -75,9 +75,6 @@ function Contact() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#08090d] text-white">
-      {/* =====================================================
-          BACKGROUND (เพิ่ม Animation ขยับเบาๆ)
-      ===================================================== */}
       <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
         <motion.div
           animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.2, 0.1] }}
@@ -126,20 +123,8 @@ function Contact() {
               </p>
             </div>
 
-            {/* Heading */}
-            <h1 className="text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-8xl">
-              Let's start a
-              <span className="block bg-gradient-to-r from-white via-zinc-300 to-zinc-600 bg-clip-text text-transparent">
-                conversation.
-              </span>
-            </h1>
 
-            {/* Description */}
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-zinc-400 sm:text-xl">
-              ไม่ว่าคุณกำลังมองหาเด็กฝึกงานตำแหน่ง Front-End Developer,
-              อยากพูดคุยปรึกษาเรื่องโปรเจกต์ หรือแค่แวะมาทักทายกัน I'd love to
-              hear from you.
-            </p>
+          
 
             {/* Status */}
             <div className="mt-10 inline-flex items-center gap-3 rounded-full border border-green-500/10 bg-green-500/[0.05] px-4 py-2.5">

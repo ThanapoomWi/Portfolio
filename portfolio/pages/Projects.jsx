@@ -137,10 +137,7 @@ function Projects() {
                         {project.title}
                       </h2>
                     </div>
-
-                    <span className="hidden text-2xl text-zinc-700 transition duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-blue-500 sm:block">
-                      ↗
-                    </span>
+                    
                   </div>
 
                   <p className="mt-5 max-w-3xl text-sm leading-7 text-zinc-400 md:text-base">
@@ -163,13 +160,14 @@ function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-zinc-300 transition hover:text-blue-400 group-hover:text-blue-400"
+                    className="group/repository mt-8 inline-flex items-center gap-2 self-start rounded-2xl bg-blue-900 px-4 py-3 text-sm font-medium text-zinc-300 transition hover:bg-blue-800 hover:text-blue-400"
                   >
                     View Repository
-                    <span className="transition-transform group-hover:translate-x-1">
+                    <span className="transition-transform group-hover/repository:translate-x-1">
                       →
                     </span>
                   </a>
+
                 </div>
               </motion.article>
             ))}
