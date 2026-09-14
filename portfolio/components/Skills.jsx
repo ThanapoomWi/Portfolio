@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import skills from "../data/skills";
 
 const fadeInUp = {
@@ -19,6 +19,8 @@ const staggerContainer = {
 };
 
 function Skills() {
+  const prefersReducedMotion = useReducedMotion();
+
   return (
     <section
       id="skills"
@@ -28,28 +30,34 @@ function Skills() {
       <div className="mx-auto max-w-7xl px-6">
 
         <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
+          variants={prefersReducedMotion ? undefined : fadeInUp}
+          initial={prefersReducedMotion ? false : "hidden"}
+          whileInView={prefersReducedMotion ? undefined : "visible"}
           viewport={{ once: true, margin: "-100px" }}
-          className="max-w-2xl"
+          className="flex flex-col justify-between gap-6 md:flex-row md:items-end"
         >
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500">
+              Skills
+            </p>
 
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-500">
-            Skills
+            <h2 className="mt-5 text-4xl font-bold tracking-tight md:text-5xl">
+              Tools I use to
+              <span className="text-zinc-500"> build.</span>
+            </h2>
+          </div>
+
+
+          <p className="max-w-md text-zinc-500">
+            Skills ที่ผมเคยใช้ในการพัฒนาเว็บไซต์และเรียนรู้
           </p>
-
-          <h2 className="mt-5 text-4xl font-bold tracking-tight md:text-5xl">
-            Tools I use to
-            <span className="text-zinc-500"> build.</span>
-          </h2>
 
         </motion.div>
 
         <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
+          variants={prefersReducedMotion ? undefined : staggerContainer}
+          initial={prefersReducedMotion ? false : "hidden"}
+          whileInView={prefersReducedMotion ? undefined : "visible"}
           viewport={{ once: true, margin: "-100px" }}
           className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
@@ -58,7 +66,7 @@ function Skills() {
 
             <motion.div
               key={skill.name}
-              variants={fadeInUp}
+              variants={prefersReducedMotion ? undefined : fadeInUp}
               className="group rounded-2xl border border-white/[0.08] bg-white/[0.025] p-7 transition duration-300 hover:-translate-y-1 hover:border-blue-500/30 hover:bg-white/[0.05]"
             >
 
@@ -78,6 +86,8 @@ function Skills() {
                 <img
                   src={skill.icon}
                   alt={`${skill.name} icon`}
+                  loading="lazy"
+                  decoding="async"
                   className="h-8 w-8 object-contain transition duration-300 group-hover:scale-110"
                 />
               </div>
@@ -85,11 +95,6 @@ function Skills() {
               <h3 className="mt-6 text-xl font-semibold">
                 {skill.name}
               </h3>
-
-
-              <p className="mt-3 text-sm leading-6 text-zinc-500">
-                {skill.description}
-              </p>
 
             </motion.div>
 

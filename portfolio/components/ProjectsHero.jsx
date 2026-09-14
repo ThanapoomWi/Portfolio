@@ -18,7 +18,7 @@ const staggerContainer = {
   },
 };
 
-function Projects() {
+function ProjectsHero() {
   return (
     <section id="projects" className="border-t border-white/[0.06] py-32">
       <div className="mx-auto max-w-7xl px-6">
@@ -34,8 +34,7 @@ function Projects() {
           </div>
 
           <p className="max-w-md text-zinc-500">
-            รวมผลงานที่ผมนำทักษะด้าน development, UI/UX และการแก้ปัญหา
-            มาประยุกต์ใช้เพื่อสร้างประสบการณ์การใช้งานที่ดี
+            รวมผลงานที่ผมนำทักษะด้าน Development, UI/UX Design มาประยุกต์ใช้
           </p>
         </div>
 
@@ -57,7 +56,7 @@ function Projects() {
                   <img
                     src={project.image}
                     alt={`${project.title} preview`}
-                    className="absolute inset-0 h-full w-full object-contain transition duration-500 group-hover:scale-[1.02]"
+                    className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]"
                   />
                 )}
 
@@ -76,7 +75,7 @@ function Projects() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
-                <span className="absolute right-6 top-6 rounded-full border border-white/10 bg-black/20 px-4 py-2 text-xs text-zinc-400 backdrop-blur-xl transition-colors group-hover:border-blue-500/30 group-hover:text-blue-300">
+                <span className="absolute right-6 top-6 rounded-full border border-white/10 bg-black/20 px-4 py-2 text-xs font-medium backdrop-blur-xl transition-colors group-hover:border-blue-500/30 group-hover:text-blue-300">
                   {project.category}
                 </span>
               </div>
@@ -95,27 +94,39 @@ function Projects() {
                 </p>
 
                 <div className="mt-7 flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full border border-white/10 bg-white/[0.02] px-3 py-1.5 text-xs text-zinc-400 transition-colors group-hover:bg-white/[0.05]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {project.tech.map((tech) => {
+                    const Icon = tech.icon; // ดึง Component ออกมาใส่ตัวแปรที่ขึ้นต้นด้วยตัวพิมพ์ใหญ่
+                    return (
+                      <span
+                        key={`${project.title}-${tech.label}`}
+                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.02] px-3 py-1.5 text-xs transition-colors group-hover:bg-blue-500/10 group-hover:text-blue-400"
+                      >
+                        <span>{Icon && <Icon className="text-sm" />}</span> {/* เรนเดอร์เป็น Component */}
+                        <span>{tech.label}</span>
+                      </span>
+                    );
+                  })}
                 </div>
 
-                <span className="group/button mt-8 inline-flex items-center gap-2 self-start rounded-2xl bg-blue-900 px-4 py-3 text-sm font-medium text-zinc-300 transition hover:bg-blue-800 hover:text-blue-400">
-                  View Project
-                  <span className="transition-transform group-hover/button:translate-x-1">→</span>
-                </span>
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group/repository mt-8 inline-flex items-center gap-2 self-start rounded-2xl bg-blue-900 px-4 py-3 text-sm font-medium text-zinc-300 transition hover:bg-blue-800 hover:text-blue-400"
+                >
+                  View Repository
+                  <span className="transition-transform group-hover/repository:translate-x-1">
+                    →
+                  </span>
+                </a>
               </div>
             </motion.article>
           ))}
+
         </motion.div>
       </div>
     </section>
   );
 }
 
-export default Projects;
+export default ProjectsHero;
